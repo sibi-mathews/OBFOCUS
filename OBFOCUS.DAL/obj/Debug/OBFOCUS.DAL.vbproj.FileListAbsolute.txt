@@ -1,0 +1,4 @@
+E:\My Work\OBFOCUS\OBFOCUS-Source\OBFOCUS\OBFOCUS.DAL\obj\Debug\OBFOCUS.DAL.vbprojAssemblyReference.cache
+E:\My Work\OBFOCUS\OBFOCUS-Source\OBFOCUS\OBFOCUS.DAL\obj\Debug\OBFOCUS.DAL.Resources.resources
+E:\My Work\OBFOCUS\OBFOCUS-Source\OBFOCUS\OBFOCUS.DAL\obj\Debug\OBFOCUS.DAL.vbproj.GenerateResource.cache
+E:\My Work\OBFOCUS\OBFOCUS-Source\OBFOCUS\OBFOCUS.DAL\obj\Debug\OBFOCUS.DAL.vbproj.CoreCompileInputs.cache

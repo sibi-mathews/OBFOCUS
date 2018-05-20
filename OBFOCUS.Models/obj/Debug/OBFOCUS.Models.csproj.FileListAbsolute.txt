@@ -1,0 +1,6 @@
+E:\My Work\OBFOCUS\OBFOCUS-Source\OBFOCUS\OBFOCUS.Models\bin\Debug\OBFOCUS.Models.dll
+E:\My Work\OBFOCUS\OBFOCUS-Source\OBFOCUS\OBFOCUS.Models\bin\Debug\OBFOCUS.Models.pdb
+E:\My Work\OBFOCUS\OBFOCUS-Source\OBFOCUS\OBFOCUS.Models\obj\Debug\OBFOCUS.Models.csprojAssemblyReference.cache
+E:\My Work\OBFOCUS\OBFOCUS-Source\OBFOCUS\OBFOCUS.Models\obj\Debug\OBFOCUS.Models.csproj.CoreCompileInputs.cache
+E:\My Work\OBFOCUS\OBFOCUS-Source\OBFOCUS\OBFOCUS.Models\obj\Debug\OBFOCUS.Models.dll
+E:\My Work\OBFOCUS\OBFOCUS-Source\OBFOCUS\OBFOCUS.Models\obj\Debug\OBFOCUS.Models.pdb
