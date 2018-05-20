@@ -1,2 +1,0 @@
-E:\My Work\OBFOCUS\OBFOCUS-Source\OBFOCUS\OBFOCUS.DO\obj\Debug\OBFOCUS.DO.csprojAssemblyReference.cache
-E:\My Work\OBFOCUS\OBFOCUS-Source\OBFOCUS\OBFOCUS.DO\obj\Debug\OBFOCUS.DO.csproj.CoreCompileInputs.cache
