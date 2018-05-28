@@ -134,10 +134,10 @@ Public Class dalLabType
 
 
         ' Set the stored procedure parameters
-        arParameters(Me.DescriptionsFields.fldID) = New SqlParameter("@LabTypeID", SqlDbType.Int)
-        arParameters(Me.DescriptionsFields.fldID).Value = ID
-        arParameters(Me.DescriptionsFields.fldName) = New SqlParameter("@LabName", SqlDbType.NVarChar, 100)
-        arParameters(Me.DescriptionsFields.fldName).Value = Name
+        arParameters(DescriptionsFields.fldID) = New SqlParameter("@LabTypeID", SqlDbType.Int)
+        arParameters(DescriptionsFields.fldID).Value = ID
+        arParameters(DescriptionsFields.fldName) = New SqlParameter("@LabName", SqlDbType.NVarChar, 100)
+        arParameters(DescriptionsFields.fldName).Value = Name
         ' Call stored procedure
         Try
             If Me.Transaction Is Nothing Then
@@ -179,10 +179,10 @@ Public Class dalLabType
 
 
         ' Set the stored procedure parameters
-        arParameters(Me.DescriptionsFields.fldID) = New SqlParameter("@LabTypeID", SqlDbType.Int)
-        arParameters(Me.DescriptionsFields.fldID).Direction = ParameterDirection.Output
-        arParameters(Me.DescriptionsFields.fldName) = New SqlParameter("@LabName", SqlDbType.NVarChar, 100)
-        arParameters(Me.DescriptionsFields.fldName).Value = Name
+        arParameters(DescriptionsFields.fldID) = New SqlParameter("@LabTypeID", SqlDbType.Int)
+        arParameters(DescriptionsFields.fldID).Direction = ParameterDirection.Output
+        arParameters(DescriptionsFields.fldName) = New SqlParameter("@LabName", SqlDbType.NVarChar, 100)
+        arParameters(DescriptionsFields.fldName).Value = Name
         ' Call stored procedure
         Try
             If Me.Transaction Is Nothing Then

@@ -1736,7 +1736,7 @@ Public Class dalChart
         Catch exception As Exception
             If Len(exception.Message) >= 39 Then
                 If Left(exception.Message, 39) = "Warning. Cannot find record. Parameters" Then
-                    MessageBox.Show("NO UPDATES ARE DONE ON THIS RECORD DUE TO CONCURRENCY ISSUE!  This record was updated by another user since you have requested a record fetch.", "Task Aborted - Concurrency Problem", MessageBoxButtons.OK, MessageBoxIcon.Stop)
+                    'MessageBox.Show("NO UPDATES ARE DONE ON THIS RECORD DUE TO CONCURRENCY ISSUE!  This record was updated by another user since you have requested a record fetch.", "Task Aborted - Concurrency Problem", MessageBoxButtons.OK, MessageBoxIcon.Stop)
                 End If
             Else
                 ExceptionManager.Publish(exception)

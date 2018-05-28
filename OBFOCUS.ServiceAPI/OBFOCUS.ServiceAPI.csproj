@@ -105,6 +105,10 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\OBFOCUS.DO\OBFOCUS.DO.csproj">
+      <Project>{17291e45-3b9a-43f4-9606-3368495b255b}</Project>
+      <Name>OBFOCUS.DO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OBFOCUS.Models\OBFOCUS.Models.csproj">
       <Project>{3b8b67b0-80ee-4e86-af5f-8181a3479476}</Project>
       <Name>OBFOCUS.Models</Name>

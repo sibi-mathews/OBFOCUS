@@ -163,10 +163,10 @@ Public Class dalSiteIPAddress
 
 
         ' Set the stored procedure parameters
-        arParameters(Me.DescriptionsFields.fldID) = New SqlParameter("@UID", SqlDbType.Int)
-        arParameters(Me.DescriptionsFields.fldID).Value = ID
-        arParameters(Me.DescriptionsFields.fldSiteID) = New SqlParameter("@IPAddress", SqlDbType.NVarChar, 50)
-        arParameters(Me.DescriptionsFields.fldSiteID).Value = IPAddress
+        arParameters(DescriptionsFields.fldID) = New SqlParameter("@UID", SqlDbType.Int)
+        arParameters(DescriptionsFields.fldID).Value = ID
+        arParameters(DescriptionsFields.fldSiteID) = New SqlParameter("@IPAddress", SqlDbType.NVarChar, 50)
+        arParameters(DescriptionsFields.fldSiteID).Value = IPAddress
         ' Call stored procedure
         Try
             If Me.Transaction Is Nothing Then
@@ -209,12 +209,12 @@ Public Class dalSiteIPAddress
 
 
         ' Set the stored procedure parameters
-        arParameters(Me.DescriptionsFields.fldID) = New SqlParameter("@UID", SqlDbType.Int)
-        arParameters(Me.DescriptionsFields.fldID).Direction = ParameterDirection.Output
-        arParameters(Me.DescriptionsFields.fldSiteID) = New SqlParameter("@SiteID", SqlDbType.Int)
-        arParameters(Me.DescriptionsFields.fldSiteID).Value = SiteID
-        arParameters(Me.DescriptionsFields.fldIPAddress) = New SqlParameter("@IPAddress", SqlDbType.NVarChar, 50)
-        arParameters(Me.DescriptionsFields.fldIPAddress).Value = IPAddress
+        arParameters(DescriptionsFields.fldID) = New SqlParameter("@UID", SqlDbType.Int)
+        arParameters(DescriptionsFields.fldID).Direction = ParameterDirection.Output
+        arParameters(DescriptionsFields.fldSiteID) = New SqlParameter("@SiteID", SqlDbType.Int)
+        arParameters(DescriptionsFields.fldSiteID).Value = SiteID
+        arParameters(DescriptionsFields.fldIPAddress) = New SqlParameter("@IPAddress", SqlDbType.NVarChar, 50)
+        arParameters(DescriptionsFields.fldIPAddress).Value = IPAddress
         ' Call stored procedure
         Try
             If Me.Transaction Is Nothing Then

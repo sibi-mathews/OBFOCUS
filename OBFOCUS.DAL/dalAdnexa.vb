@@ -113,14 +113,14 @@ Public Class dalAdnexa
         Dim arParameters(3) As SqlParameter         ' Array to hold stored procedure parameters
 
         ' Set the stored procedure parameters
-        arParameters(Me.DescriptionsFields.fldID) = New SqlParameter("@AdnexaID", SqlDbType.Int)
-        arParameters(Me.DescriptionsFields.fldID).Value = AdnexaID
-        arParameters(Me.DescriptionsFields.fldName) = New SqlParameter("@Name", SqlDbType.NVarChar, 100)
-        arParameters(Me.DescriptionsFields.fldName).Direction = ParameterDirection.Output
-        arParameters(Me.DescriptionsFields.fldDescription) = New SqlParameter("@Description", SqlDbType.VarChar, 8000)
-        arParameters(Me.DescriptionsFields.fldDescription).Direction = ParameterDirection.Output
-        arParameters(Me.DescriptionsFields.fldExaminerID) = New SqlParameter("@ExaminerID", SqlDbType.Int)
-        arParameters(Me.DescriptionsFields.fldExaminerID).Direction = ParameterDirection.Output
+        arParameters(DescriptionsFields.fldID) = New SqlParameter("@AdnexaID", SqlDbType.Int)
+        arParameters(DescriptionsFields.fldID).Value = AdnexaID
+        arParameters(DescriptionsFields.fldName) = New SqlParameter("@Name", SqlDbType.NVarChar, 100)
+        arParameters(DescriptionsFields.fldName).Direction = ParameterDirection.Output
+        arParameters(DescriptionsFields.fldDescription) = New SqlParameter("@Description", SqlDbType.VarChar, 8000)
+        arParameters(DescriptionsFields.fldDescription).Direction = ParameterDirection.Output
+        arParameters(DescriptionsFields.fldExaminerID) = New SqlParameter("@ExaminerID", SqlDbType.Int)
+        arParameters(DescriptionsFields.fldExaminerID).Direction = ParameterDirection.Output
 
 
         ' Call stored procedure
@@ -133,12 +133,12 @@ Public Class dalAdnexa
 
 
             ' Return False if data was not found.
-            If arParameters(Me.DescriptionsFields.fldName).Value Is DBNull.Value Then Return False
+            If arParameters(DescriptionsFields.fldName).Value Is DBNull.Value Then Return False
 
             ' Return True if data was found. Also populate output (ByRef) parameters.
-            Name = ProcessNull.GetString(arParameters(Me.DescriptionsFields.fldName).Value)
-            Description = ProcessNull.GetString(arParameters(Me.DescriptionsFields.fldDescription).Value)
-            ExaminerID = ProcessNull.GetInt32(arParameters(Me.DescriptionsFields.fldExaminerID).Value)
+            Name = ProcessNull.GetString(arParameters(DescriptionsFields.fldName).Value)
+            Description = ProcessNull.GetString(arParameters(DescriptionsFields.fldDescription).Value)
+            ExaminerID = ProcessNull.GetInt32(arParameters(DescriptionsFields.fldExaminerID).Value)
             Return True
 
         Catch ex As Exception
@@ -169,14 +169,14 @@ Public Class dalAdnexa
 
 
         ' Set the stored procedure parameters
-        arParameters(Me.DescriptionsFields.fldID) = New SqlParameter("@AdnexaID", SqlDbType.Int)
-        arParameters(Me.DescriptionsFields.fldID).Value = AdnexaID
-        arParameters(Me.DescriptionsFields.fldName) = New SqlParameter("@Name", SqlDbType.NVarChar, 100)
-        arParameters(Me.DescriptionsFields.fldName).Value = Name
-        arParameters(Me.DescriptionsFields.fldDescription) = New SqlParameter("@Description", SqlDbType.VarChar, 8000)
-        arParameters(Me.DescriptionsFields.fldDescription).Value = Description
-        arParameters(Me.DescriptionsFields.fldExaminerID) = New SqlParameter("@ExaminerID", SqlDbType.Int)
-        arParameters(Me.DescriptionsFields.fldExaminerID).Value = ExaminerID
+        arParameters(DescriptionsFields.fldID) = New SqlParameter("@AdnexaID", SqlDbType.Int)
+        arParameters(DescriptionsFields.fldID).Value = AdnexaID
+        arParameters(DescriptionsFields.fldName) = New SqlParameter("@Name", SqlDbType.NVarChar, 100)
+        arParameters(DescriptionsFields.fldName).Value = Name
+        arParameters(DescriptionsFields.fldDescription) = New SqlParameter("@Description", SqlDbType.VarChar, 8000)
+        arParameters(DescriptionsFields.fldDescription).Value = Description
+        arParameters(DescriptionsFields.fldExaminerID) = New SqlParameter("@ExaminerID", SqlDbType.Int)
+        arParameters(DescriptionsFields.fldExaminerID).Value = ExaminerID
         ' Call stored procedure
         Try
             If Me.Transaction Is Nothing Then
@@ -210,9 +210,9 @@ Public Class dalAdnexa
     '*              True (record added); False (otherwise).
     '*
     '**************************************************************************
-    Public Function Add(ByRef AdnexaID As Integer, _
-                ByVal Name As String, _
-                ByVal Description As String, _
+    Public Function Add(ByRef AdnexaID As Integer,
+                ByVal Name As String,
+                ByVal Description As String,
                 ByVal ExaminerID As Integer) As Boolean
 
         Dim intRecordsAffected As Integer = 0
@@ -220,14 +220,14 @@ Public Class dalAdnexa
 
 
         ' Set the stored procedure parameters
-        arParameters(Me.DescriptionsFields.fldID) = New SqlParameter("@AdnexaID", SqlDbType.Int)
-        arParameters(Me.DescriptionsFields.fldID).Direction = ParameterDirection.Output
-        arParameters(Me.DescriptionsFields.fldName) = New SqlParameter("@Name", SqlDbType.NVarChar, 100)
-        arParameters(Me.DescriptionsFields.fldName).Value = Name
-        arParameters(Me.DescriptionsFields.fldDescription) = New SqlParameter("@Description", SqlDbType.VarChar, 8000)
-        arParameters(Me.DescriptionsFields.fldDescription).Value = Description
-        arParameters(Me.DescriptionsFields.fldExaminerID) = New SqlParameter("@ExaminerID", SqlDbType.Int)
-        arParameters(Me.DescriptionsFields.fldExaminerID).Value = ExaminerID
+        arParameters(DescriptionsFields.fldID) = New SqlParameter("@AdnexaID", SqlDbType.Int)
+        arParameters(DescriptionsFields.fldID).Direction = ParameterDirection.Output
+        arParameters(DescriptionsFields.fldName) = New SqlParameter("@Name", SqlDbType.NVarChar, 100)
+        arParameters(DescriptionsFields.fldName).Value = Name
+        arParameters(DescriptionsFields.fldDescription) = New SqlParameter("@Description", SqlDbType.VarChar, 8000)
+        arParameters(DescriptionsFields.fldDescription).Value = Description
+        arParameters(DescriptionsFields.fldExaminerID) = New SqlParameter("@ExaminerID", SqlDbType.Int)
+        arParameters(DescriptionsFields.fldExaminerID).Value = ExaminerID
         ' Call stored procedure
         Try
             If Me.Transaction Is Nothing Then

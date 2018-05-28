@@ -111,12 +111,12 @@ Public Class dalProcedure
         Dim arParameters(2) As SqlParameter         ' Array to hold stored procedure parameters
 
         ' Set the stored procedure parameters
-        arParameters(Me.DescriptionsFields.fldID) = New SqlParameter("@ProcedureID", SqlDbType.Int)
-        arParameters(Me.DescriptionsFields.fldID).Value = ProcedureID
-        arParameters(Me.DescriptionsFields.fldName) = New SqlParameter("@Name", SqlDbType.NVarChar, 100)
-        arParameters(Me.DescriptionsFields.fldName).Direction = ParameterDirection.Output
-        arParameters(Me.DescriptionsFields.fldDescription) = New SqlParameter("@Description", SqlDbType.VarChar, 8000)
-        arParameters(Me.DescriptionsFields.fldDescription).Direction = ParameterDirection.Output
+        arParameters(DescriptionsFields.fldID) = New SqlParameter("@ProcedureID", SqlDbType.Int)
+        arParameters(DescriptionsFields.fldID).Value = ProcedureID
+        arParameters(DescriptionsFields.fldName) = New SqlParameter("@Name", SqlDbType.NVarChar, 100)
+        arParameters(DescriptionsFields.fldName).Direction = ParameterDirection.Output
+        arParameters(DescriptionsFields.fldDescription) = New SqlParameter("@Description", SqlDbType.VarChar, 8000)
+        arParameters(DescriptionsFields.fldDescription).Direction = ParameterDirection.Output
         ' Call stored procedure
         Try
             If Me.Transaction Is Nothing Then
@@ -127,11 +127,11 @@ Public Class dalProcedure
 
 
             ' Return False if data was not found.
-            If arParameters(Me.DescriptionsFields.fldName).Value Is DBNull.Value Then Return False
+            If arParameters(DescriptionsFields.fldName).Value Is DBNull.Value Then Return False
 
             ' Return True if data was found. Also populate output (ByRef) parameters.
-            Name = ProcessNull.GetString(arParameters(Me.DescriptionsFields.fldName).Value)
-            Description = ProcessNull.GetString(arParameters(Me.DescriptionsFields.fldDescription).Value)
+            Name = ProcessNull.GetString(arParameters(DescriptionsFields.fldName).Value)
+            Description = ProcessNull.GetString(arParameters(DescriptionsFields.fldDescription).Value)
             Return True
 
         Catch ex As Exception
@@ -161,12 +161,12 @@ Public Class dalProcedure
 
 
         ' Set the stored procedure parameters
-        arParameters(Me.DescriptionsFields.fldID) = New SqlParameter("@ProcedureID", SqlDbType.Int)
-        arParameters(Me.DescriptionsFields.fldID).Value = ProcedureID
-        arParameters(Me.DescriptionsFields.fldName) = New SqlParameter("@Name", SqlDbType.NVarChar, 100)
-        arParameters(Me.DescriptionsFields.fldName).Value = Name
-        arParameters(Me.DescriptionsFields.fldDescription) = New SqlParameter("@Description", SqlDbType.VarChar, 8000)
-        arParameters(Me.DescriptionsFields.fldDescription).Value = Description
+        arParameters(DescriptionsFields.fldID) = New SqlParameter("@ProcedureID", SqlDbType.Int)
+        arParameters(DescriptionsFields.fldID).Value = ProcedureID
+        arParameters(DescriptionsFields.fldName) = New SqlParameter("@Name", SqlDbType.NVarChar, 100)
+        arParameters(DescriptionsFields.fldName).Value = Name
+        arParameters(DescriptionsFields.fldDescription) = New SqlParameter("@Description", SqlDbType.VarChar, 8000)
+        arParameters(DescriptionsFields.fldDescription).Value = Description
         ' Call stored procedure
         Try
             If Me.Transaction Is Nothing Then
@@ -209,12 +209,12 @@ Public Class dalProcedure
 
 
         ' Set the stored procedure parameters
-        arParameters(Me.DescriptionsFields.fldID) = New SqlParameter("@ProcedureID", SqlDbType.Int)
-        arParameters(Me.DescriptionsFields.fldID).Direction = ParameterDirection.Output
-        arParameters(Me.DescriptionsFields.fldName) = New SqlParameter("@Name", SqlDbType.NVarChar, 100)
-        arParameters(Me.DescriptionsFields.fldName).Value = Name
-        arParameters(Me.DescriptionsFields.fldDescription) = New SqlParameter("@Description", SqlDbType.VarChar, 8000)
-        arParameters(Me.DescriptionsFields.fldDescription).Value = Description
+        arParameters(DescriptionsFields.fldID) = New SqlParameter("@ProcedureID", SqlDbType.Int)
+        arParameters(DescriptionsFields.fldID).Direction = ParameterDirection.Output
+        arParameters(DescriptionsFields.fldName) = New SqlParameter("@Name", SqlDbType.NVarChar, 100)
+        arParameters(DescriptionsFields.fldName).Value = Name
+        arParameters(DescriptionsFields.fldDescription) = New SqlParameter("@Description", SqlDbType.VarChar, 8000)
+        arParameters(DescriptionsFields.fldDescription).Value = Description
         ' Call stored procedure
         Try
             If Me.Transaction Is Nothing Then

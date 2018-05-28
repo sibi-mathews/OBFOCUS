@@ -6,6 +6,7 @@ Imports System
 Imports System.Data
 Imports System.Data.SqlClient
 Imports System.Xml
+Imports OBFOCUS.Models
 '******************************************************************************
 '*
 '* Name:        dalLogins
@@ -234,7 +235,7 @@ Public Class dalLogins
             End If
         Catch exception As Exception
             If Left(exception.Message, 29) = "User does not have permission" Then
-                MessageBox.Show("User does not have permission to perform this action.  Please review or contact your administrator for more technical support.", "Task Aborted", MessageBoxButtons.OK, MessageBoxIcon.Stop)
+                'MessageBox.Show("User does not have permission to perform this action.  Please review or contact your administrator for more technical support.", "Task Aborted", MessageBoxButtons.OK, MessageBoxIcon.Stop)
             Else
                 ExceptionManager.Publish(exception)
             End If
@@ -295,6 +296,30 @@ Public Class dalLogins
     End Function
 
 
+    Public Function Authenticate(ByRef userProfile As UserProfile) As UserProfile
+        Globals.UserName = userProfile.UserName
+        Globals.Password = userProfile.Password
+
+        Dim intRecordsAffected As Integer = 0
+        Try
+            If Me.Transaction Is Nothing Then
+                intRecordsAffected = SqlHelper.ExecuteNonQuery(Globals.ConnectionString, CommandType.Text, "select @@version")
+            Else
+                intRecordsAffected = SqlHelper.ExecuteNonQuery(Me.Transaction, CommandType.Text, "select @@version")
+            End If
+
+            userProfile.IsAuthenticated = True
+        Catch ex As Exception
+            Dim errorMessage As String = ExceptionManager.Publish(ex)
+            Globals.bAppContinue = False
+            If Not String.IsNullOrEmpty(errorMessage) Then
+                Throw New Exception(errorMessage)
+            Else
+                Throw ex
+            End If
+        End Try
+        Return userProfile
+    End Function
 #End Region
 
 

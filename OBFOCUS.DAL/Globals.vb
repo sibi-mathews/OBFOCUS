@@ -1,6 +1,7 @@
 Option Explicit On 
 Option Strict On
 Imports System.Data.SqlClient
+Imports System.Configuration
 
 '******************************************************************************
 '*
@@ -83,11 +84,10 @@ Public NotInheritable Class Globals
     Private Shared mUserExaminerID As Integer = Nothing
     Public Event UserNameChanged As EventHandler
     Private Shared mGetTimeLastUpd As Date = Now()
-    Private Shared mReviewedStamp As String = Application.StartupPath + "/ReviewedStamp.gif"
+    Private Shared mReviewedStamp As String = Nothing 'Application.StartupPath + "/ReviewedStamp.gif"
     Private Shared mMaternalAge As Integer = Nothing
     Private Shared mDOB As Date = Nothing
     Private Shared mStrReceive As String = ""
-    Public Shared frmSerialPort As frmPortListener = Nothing
 
 
 
@@ -136,10 +136,10 @@ Public NotInheritable Class Globals
     Public Shared ReadOnly Property ConnectionString() As String
         Get
             If Len(mConnectionString) = 0 Or mbResetConnectionstring = True Then
-                Dim objIniFile As New ProcessIni(Application.StartupPath & "\OBFOCUS.ini")
-                Dim strData As String = objIniFile.GetString("Login", "ConnectionString", " ")
-                Dim strDataSource As String = objIniFile.GetString("Login", "Data Source", " ")
-                mConnectionString = strData & "Data Source=" & strDataSource & ";User ID=" & UserName & ";Password=" & Password & ";"
+                Dim dbConnectionString As String = ConfigurationManager.ConnectionStrings("OBFOCUS").ConnectionString
+                dbConnectionString = String.Format(dbConnectionString, UserName, Password)
+                'mConnectionString = strData & "Data Source=" & strDataSource & ";User ID=" & UserName & ";Password=" & Password & ";"
+                mConnectionString = dbConnectionString
                 mbResetConnectionstring = False
             End If
             Return mConnectionString
@@ -156,7 +156,7 @@ Public NotInheritable Class Globals
     Public Shared Sub CheckConnectionString()
         If Len(mConnectionString) = 0 Then
             Dim getDataSource As String
-            Dim objIniFile As New ProcessIni(Application.StartupPath & "\OBFOCUS.ini")
+            Dim objIniFile As New ProcessIni("\OBFOCUS.ini")
             Dim strData As String = objIniFile.GetString("Login", "Data Source", " ")
             If Len(strData) = 0 Then
                 getDataSource = InputBox("Server name needs to be recorded.  If you are unsure about your server name, " _
@@ -196,7 +196,7 @@ Public NotInheritable Class Globals
         Get
             'TODO Change application to read connection string from registry, rather then hardcode it as above.
             If Len(mRptConnectionString) = 0 Then
-                Dim objIniFile As New ProcessIni(Application.StartupPath & "\OBFOCUS.ini")
+                Dim objIniFile As New ProcessIni("\OBFOCUS.ini")
                 Dim strData As String = objIniFile.GetString("Settings", "RptConnectionString", " ")
                 Dim strDataSource As String = objIniFile.GetString("Settings", "Server", " ")
                 mRptConnectionString = strData & "Server=" & strDataSource & ";User ID=" & UserName & ";Password=" & Password & ";"
@@ -217,7 +217,7 @@ Public NotInheritable Class Globals
         Get
             'TODO Change application to read connection string from registry, rather then hardcode it as above.
             If Len(mCrystalRptPath) = 0 Then
-                Dim objIniFile As New ProcessIni(Application.StartupPath & "\OBFOCUS.ini")
+                Dim objIniFile As New ProcessIni("\OBFOCUS.ini")
                 Dim strData As String = objIniFile.GetString("Settings", "CrystalRptPath", " ")
                 mCrystalRptPath = strData
             End If
@@ -236,7 +236,7 @@ Public NotInheritable Class Globals
         Get
             'TODO Change application to read connection string from registry, rather then hardcode it as above.
             If Len(mstrAppPath) = 0 Then
-                Dim objIniFile As New ProcessIni(Application.StartupPath & "\OBFOCUS.ini")
+                Dim objIniFile As New ProcessIni("\OBFOCUS.ini")
                 Dim strData As String = objIniFile.GetString("Settings", "strAppPath", " ")
                 mstrAppPath = strData
             End If
@@ -1355,17 +1355,17 @@ Public NotInheritable Class Globals
     End Sub 'ParseKey
 
 
-    '**************************************************************************
-    '*  
-    '* Name:        XP
-    '*
-    '* Description: Returns boolean indicating if the programme is running on
-    '*              XP. If it is, the grid will be assigned the XP style.
-    '**************************************************************************
-    Public Shared Function XP() As Boolean
-        Dim VersionDetect As New Custom.Windows.Forms.VersionDetector
-        Return (VersionDetect.WindowsName.IndexOf("XP") > 0)
-    End Function 'XP
+    ''**************************************************************************
+    ''*  
+    ''* Name:        XP
+    ''*
+    ''* Description: Returns boolean indicating if the programme is running on
+    ''*              XP. If it is, the grid will be assigned the XP style.
+    ''**************************************************************************
+    'Public Shared Function XP() As Boolean
+    '    Dim VersionDetect As New Custom.Windows.Forms.VersionDetector
+    '    Return (VersionDetect.WindowsName.IndexOf("XP") > 0)
+    'End Function 'XP
 
 
     '**************************************************************************

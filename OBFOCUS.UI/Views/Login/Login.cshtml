@@ -1,29 +1,32 @@
 ﻿@model OBFOCUS.UI.Models.LoginModel
 
 @{
-    ViewBag.Title = "Log in";
+    ViewBag.Title = "Sign in";
 }
 
 <div class="login-box-body">
-    <p class="login-box-msg">Sign in to start your session</p>
-
-    <form action="/Login/Login" method="post">
+    <p class="login-box-msg">Sign in</p>
+    @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+    {
         @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true)
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
         <div class="form-group has-feedback">
-            <input type="email" class="form-control" placeholder="Email" name="UserName">
-            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = "UserName" })
+            <span class="glyphicon glyphicon-user form-control-feedback"></span>
         </div>
+
         <div class="form-group has-feedback">
-            <input type="password" class="form-control" placeholder="Password" name="Password">
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
+
         <div class="row">
             <div class="col-xs-8">
                 <div class="checkbox icheck">
                     <label>
                         <input type="checkbox">
-                        Remember Me 
+                        Remember Me
                     </label>
                 </div>
             </div>
@@ -33,10 +36,5 @@
             </div>
             <!-- /.col -->
         </div>
-    </form>
-
-    
-    <a href="#">I forgot my password</a><br>
-    <a href="register.html" class="text-center">Register a new membership</a>
-
+    }
 </div>
