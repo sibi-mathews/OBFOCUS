@@ -1,0 +1,9 @@
+﻿@using C1.Web.Mvc.Fluent
+@model IEnumerable<OBFOCUS.UI.Models.NavigationViewModel>
+
+
+@(Html.C1().TreeView().Id("tv")
+    .Bind(Model)
+    .DisplayMemberPath("Header")
+    .ImageMemberPath("Image")
+    .ChildItemsPath("Items"))

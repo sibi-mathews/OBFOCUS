@@ -25,6 +25,7 @@ namespace OBFOCUS.Models
         private string _password = string.Empty;
         private bool _isAuthenticated = false;
         private string _sessionId = string.Empty;
+        private UserRole _userRole = null;
 
         public string UserName
         {
@@ -48,6 +49,12 @@ namespace OBFOCUS.Models
         {
             get { return _sessionId; }
             set { _sessionId = value; }
+        }
+
+        public UserRole UserRole
+        {
+            get { return _userRole; }
+            set { _userRole = value; }
         }
     }
 }

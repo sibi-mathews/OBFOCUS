@@ -19,10 +19,19 @@ namespace OBFOCUS.ServiceAPI
             try
             {
                 userProfile = loginDO.Authenticate(userProfile);
-                if(userProfile.IsAuthenticated)
+                if (userProfile.IsAuthenticated)
+                {
+                    UserRole userRole = loginDO.GetUserRole(userProfile.UserName);
+                    if(userRole != null)
+                    {
+                        userProfile.UserRole = userRole;
+                    }
                     response = Request.CreateResponse<UserProfile>(HttpStatusCode.OK, userProfile);
+                }
                 else
+                {
                     response = Request.CreateResponse<UserProfile>(HttpStatusCode.Unauthorized, userProfile);
+                }
             }
             catch(Exception ex)
             {

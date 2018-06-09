@@ -157,18 +157,74 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Chart\ChartViewModel.cs" />
     <Compile Include="Models\NavigationViewModel.cs" />
     <Compile Include="ServiceAccessor\HttpClientService.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceAccessor\LoginClient.cs" />
+    <Compile Include="Utils\CommonUtil.cs" />
     <Compile Include="Utils\SessionManager.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-overrides.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\Classes\abstract.ico" />
+    <Content Include="Content\Images\Classes\AFIPercentile.ico" />
+    <Content Include="Content\Images\Classes\AmniocentesisLog.ico" />
+    <Content Include="Content\Images\Classes\ANAImmunofluorescence.ico" />
+    <Content Include="Content\Images\Classes\AppendicitisAlgorithm.ico" />
+    <Content Include="Content\Images\Classes\Charts.ico" />
+    <Content Include="Content\Images\Classes\DatabaseStatistics.ico" />
+    <Content Include="Content\Images\Classes\Defaults.ico" />
+    <Content Include="Content\Images\Classes\DiabetesCalculator.ico" />
+    <Content Include="Content\Images\Classes\Diagnosis.ico" />
+    <Content Include="Content\Images\Classes\Examinations.ico" />
+    <Content Include="Content\Images\Classes\FetalLength.ico" />
+    <Content Include="Content\Images\Classes\FindPatient.ico" />
+    <Content Include="Content\Images\Classes\formulary.ico" />
+    <Content Include="Content\Images\Classes\GestationalAge.ico" />
+    <Content Include="Content\Images\Classes\HepatitisSerology.ico" />
+    <Content Include="Content\Images\Classes\HypokalemiaSerology.ico" />
+    <Content Include="Content\Images\Classes\ImageCatalog.ico" />
+    <Content Include="Content\Images\Classes\KnowledgeBase.ico" />
+    <Content Include="Content\Images\Classes\medline.ico" />
+    <Content Include="Content\Images\Classes\Mergerecords.ico" />
+    <Content Include="Content\Images\Classes\Outcome.ico" />
+    <Content Include="Content\Images\Classes\OutcomeByDiagnosis.ico" />
+    <Content Include="Content\Images\Classes\PatientInstruction.ico" />
+    <Content Include="Content\Images\Classes\PatientsByDiagnosis.ico" />
+    <Content Include="Content\Images\Classes\PeakFlow.ico" />
+    <Content Include="Content\Images\Classes\PendingLaboratories.ico" />
+    <Content Include="Content\Images\Classes\Physician.ico" />
+    <Content Include="Content\Images\Classes\ReferringPractioners.ico" />
+    <Content Include="Content\Images\Classes\Risk.ico" />
+    <Content Include="Content\Images\Classes\security.ico" />
+    <Content Include="Content\Images\Classes\StatisticsByDiagnosis.ico" />
+    <Content Include="Content\Images\Classes\syncopeVsVertigo.ico" />
+    <Content Include="Content\Images\Classes\ThyroidFunctionTest.ico" />
+    <Content Include="Content\Images\Classes\transposerecords.ico" />
+    <Content Include="Content\Images\Classes\UndeliveredTrackedAnomalies.ico" />
+    <Content Include="Content\Images\Classes\workbooks.ico" />
+    <Content Include="Content\Images\fax.gif" />
+    <Content Include="Content\Images\Fax.ico" />
+    <Content Include="Content\Images\print.gif" />
+    <Content Include="Content\Images\Printer.ico" />
+    <Content Include="Content\Images\Project\Delete.ICO" />
+    <Content Include="Content\Images\Project\Edit.ICO" />
+    <Content Include="Content\Images\Project\key.ICO" />
+    <Content Include="Content\Images\Project\ProductImage.ico" />
+    <Content Include="Content\Images\Project\Profile.ico" />
+    <Content Include="Content\Images\Project\ProjectIcon.ico" />
+    <Content Include="Content\Images\SwitchBoard\MaintainData.ico" />
+    <Content Include="Content\Images\SwitchBoard\ProcessData.ico" />
+    <Content Include="Content\Images\SwitchBoard\Reference.ico" />
+    <Content Include="Content\Images\SwitchBoard\Tools.ico" />
+    <Content Include="Content\Images\SwitchBoard\ViewsAndReports.ico" />
+    <Content Include="Content\Images\zoom.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -202,6 +258,10 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Shared\_Navigation.cshtml" />
+    <Content Include="Views\Shared\_LoginLayout.cshtml" />
+    <Content Include="Views\Home\_ViewStart.cshtml" />
+    <Content Include="Views\Chart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -247,6 +307,8 @@
           <DevelopmentServerPort>50213</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:50213/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:50213/OBFOCUS/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

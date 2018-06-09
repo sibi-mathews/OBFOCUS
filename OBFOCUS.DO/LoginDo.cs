@@ -10,6 +10,11 @@ namespace OBFOCUS.DO
 {
     public class LoginDo
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userProfile"></param>
+        /// <returns></returns>
         public UserProfile Authenticate(UserProfile userProfile)
         {
             try
@@ -22,6 +27,35 @@ namespace OBFOCUS.DO
                 throw;
             }
             return userProfile;
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
+        public UserRole GetUserRole(string username)
+        {
+            UserRole userRole = null;
+            try
+            {
+                dalLogins login = new dalLogins();
+                Globals.UserName = username;
+                bool isSuccess = login.GetRole();
+                if (isSuccess)
+                {
+                    userRole = new UserRole();
+                    userRole.Role = Globals.UserRole;
+                    userRole.LimPhysicianID = Globals.LimPhysicianID;
+                    userRole.UserExaminerID = Globals.UserExaminerID;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return userRole;
         }
     }
 }

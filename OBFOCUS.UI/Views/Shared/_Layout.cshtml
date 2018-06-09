@@ -1,30 +1,69 @@
 ﻿@using C1.Web.Mvc.Fluent
-@model IEnumerable<OBFOCUS.UI.Models.NavigationViewModel>
-
+@using OBFOCUS.UI.Models
+@using OBFOCUS.UI.Utils
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - OBFOCUS</title>
+    <title>OBFOCUS</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Html.C1().Styles()
     @Html.C1().Scripts().Basic()
 </head>
 <body>
-    @(Html.C1().TreeView().Id("tv").Bind(Model)
-                        .DisplayMemberPath("Header")
-                        .ChildItemsPath("Items"))
-    <div class="container body-content">
-
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - OBFOCUS</p>
-        </footer>
+    <header id="header">
+        <span>
+            <a href="#">
+                <div class="logo"></div>
+            </a>
+        </span>
+        <div class="profile">
+            <div class="profile-image">
+                <i class="glyphicon glyphicon-user">&nbsp;</i>
+            </div>
+            <div class="profile-details">
+                <div class="user-details">
+                    Welcome, @SessionManager.SessionUserProfile.UserName.ToUpper()
+                </div>
+                <div class="user-logout">
+                    @Html.ActionLink("Logout", "Logout", "Login", null, new { @class = "user-logout", @id = "userlogoutlink" })
+                </div>
+            </div>
+        </div>
+    </header>
+    @*<nav class="navbar navbar-inverse" id="menubar">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Add Ancillary</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Forms</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Graphs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Unlock Chart</a>
+                </li>
+            </ul>
+        </nav>*@
+    <div class="container body-content" id="mainbody">
+        <div class="row">
+            <div class="col-md-3" id="switchboard">
+                @{ Html.RenderAction("Navigation", "Home"); }
+            </div>
+            <div class="col-md-9" id="switchboard-content">
+                @RenderBody()
+            </div>
+        </div>
     </div>
+    <hr />
+    <footer>
+        <p>&copy; @DateTime.Now.Year - OBFOCUS</p>
+    </footer>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

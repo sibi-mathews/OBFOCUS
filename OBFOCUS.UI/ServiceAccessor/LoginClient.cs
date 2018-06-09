@@ -35,6 +35,7 @@ namespace OBFOCUS.UI.ServiceAccessor
                         if (result.IsAuthenticated)
                         {
                             userProfile.SessionId = HttpContext.Current.Session.SessionID;
+                            userProfile.UserRole = result.UserRole;
                             SessionManager.SessionUserProfile = userProfile;
                         }
                         else
